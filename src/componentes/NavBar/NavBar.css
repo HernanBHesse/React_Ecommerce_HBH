@@ -9,11 +9,6 @@
     width: calc(9vh);
 }
 
-.menu {
-    height: 10vh;
-    width: 100vw;
-}
-
 .menu ul {
     display: flex;
     flex-direction: row;
