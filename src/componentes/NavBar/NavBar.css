@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contenedor-logo img {
+    height: 9vh;
+    width: calc(9vh);
+}
+
+.menu {
+    height: 10vh;
+    width: 100vw;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 80vw;
+}
+
+.menu ul li button {
+    height: 7vh;
+    min-width: 15vw;
+    background-color: rgba(0, 0, 255, 0.3);
+    margin: 10px;
+    border: none;
+    border-radius: 1rem;
+}
