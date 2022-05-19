@@ -1,13 +1,18 @@
 import './App.css';
 import NavBar from './componentes/NavBar/NavBar';
+import ItemListContainer from './componentes/CardList/ItemListContainer'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <NavBar />
-        <h1>Ecommerce Hernan BH</h1>
-      </header>
+      <div className='App-header'></div>
+      <NavBar />
+      <div className="App-main contenedor-Inicio">
+        <ItemListContainer tituloSeccion={'Ofertas del'} />
+      </div>
+      <div className="App-footer">
+        <h3>Footer</h3>
+      </div>
     </div>
   );
 }
