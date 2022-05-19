@@ -1,5 +1,5 @@
 import './NavBar.css';
-import CardWidget from '../CardWidget/CartWidget';
+import CardWidget from '../CardWidget/CardWidget';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
