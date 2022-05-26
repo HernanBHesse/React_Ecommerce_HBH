@@ -2,24 +2,17 @@ import "./ItemCount.css";
 import { useState } from "react";
 import { Button } from "@mui/material";
 
-const ItemCount = ({ stock, inicial, precio }) => {
+const ItemCount = ({ stock, inicial, onAdd }) => {
   const [count, setCount] = useState(inicial);
   const addCount = () => {
-    if (count <= stock) setCount(count + 1);
+    if (count < stock) {
+      setCount(count + 1);
+    }
   };
   const removeCount = () => {
     if (count > 1) {
       setCount(count - 1);
     }
-  };
-
-  const addOn = () => {
-    console.log(
-      `Agregaste a carrito ${count} productos con un total de $ ${
-        count * precio
-      }`
-    );
-    setCount(1);
   };
 
   return (
@@ -34,7 +27,10 @@ const ItemCount = ({ stock, inicial, precio }) => {
         variant="contained"
         color="info"
         children="Comprar"
-        onClick={addOn}
+        onClick={() => {
+          onAdd(count);
+          setCount(inicial);
+        }}
       />
     </>
   );
