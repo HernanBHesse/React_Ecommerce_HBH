@@ -7,7 +7,7 @@ const ItemDetailContainer = ({ tituloSeccion}) => {
 
   useEffect(() => {
     getItem().then((res) => {
-      setProducto(res.find((product) => product.id === 3));
+      setProducto(res.find((product) => product.id === 4));
     });
   }, []);
 

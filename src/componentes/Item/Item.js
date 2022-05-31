@@ -17,12 +17,13 @@ const CardItem = ({ titulo, precio, imagen, altImagen, stock }) => {
 
   return (
     <Card
-      sx={{ display: "flex", flexDirection: "column", maxWidth: 345, p: 2 }}
+      sx={{ display: "flex", flexDirection: "column", p: 2 }}
     >
       <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
         <CardMedia
           component="img"
-          height="140"
+          height="auto"
+          width= "100%"
           src={`./${imagen}`}
           alt={altImagen}
         />
