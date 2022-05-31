@@ -1,6 +1,5 @@
-import "./ItemCount.css";
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, ButtonGroup } from "@mui/material";
 
 const ItemCount = ({ stock, inicial, onAdd }) => {
   const [count, setCount] = useState(inicial);
@@ -17,12 +16,18 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
 
   return (
     <>
-      <hr />
-      <div className="contador-item">
-        <Button variant="text" children="+" onClick={addCount} />
-        <p>{count}</p>
-        <Button variant="text" children="-" onClick={removeCount} />
-      </div>
+      <ButtonGroup
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          marginBottom: "5px",
+        }}
+      >
+        <Button variant="text" children="+" onClick={addCount}/>
+        {count}
+        <Button variant="text" children="-" onClick={removeCount}/>
+      </ButtonGroup>
       <Button
         variant="contained"
         color="info"
