@@ -9,6 +9,8 @@
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   text-align: center;
   background-color: #009CEE;
@@ -34,6 +36,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 10vh;
+  margin-top: auto;
   color: white;
   text-align: center;
   background-color: black;

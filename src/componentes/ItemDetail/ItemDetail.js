@@ -19,7 +19,7 @@ const ItemDetail = ({ tituloSeccion, product }) => {
           <CardMedia
             component="img"
             min-height="300"
-            src={`./${imagen}`}
+            src={`/${imagen}`}
             alt={altImagen}
           />
           <CardContent>

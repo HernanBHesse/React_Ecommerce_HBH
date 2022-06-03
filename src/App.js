@@ -1,22 +1,24 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./componentes/NavBar/NavBar";
-import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
+import Home from "./pages/Home";
+import Productos from "./pages/ListadoDeProductos";
+import Categorias from "./pages/Categorias";
 import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
+import Footer from "./componentes/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <div className="App-header"></div>
       <NavBar />
-      <div className="App-main contenedor-Inicio">
-        <ItemListContainer tituloSeccion={"Ofertas del"}/>
-      </div>
-      <div>
-        <ItemDetailContainer tituloSeccion={"Detalles"}/>
-      </div>
-      <div className="App-footer">
-        <h3>Footer</h3>
-      </div>
+      <Routes>
+        <Route path="*" element={<h2>404 - Pagina no encontrada</h2>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/listadoproductos" element={<Productos />} />
+        <Route path="/category/:categoria" element={<Categorias />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+      <Footer/>
     </div>
   );
 }

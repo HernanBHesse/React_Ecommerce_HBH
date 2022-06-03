@@ -1,23 +1,23 @@
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
-import getItem from "../../funciones/getItem";
+import { useParams } from "react-router-dom";
+import productos from "../../utils/productos";
 
-const ItemDetailContainer = ({ tituloSeccion}) => {
+const ItemDetailContainer = () => {
   const [prod, setProducto] = useState([]);
+  const { id } = useParams();
+
+  const filtrarProducto = productos.find((producto) => {
+    return producto.id == id;
+  });
 
   useEffect(() => {
-    getItem().then((res) => {
-      setProducto(res.find((product) => product.id === 4));
-    });
+    setProducto(filtrarProducto);
   }, []);
 
   return (
     <>
-      <ItemDetail
-        tituloSeccion={`${tituloSeccion}`}
-        product={prod}
-        key={prod.id}
-      />
+      <ItemDetail tituloSeccion={prod.titulo} product={prod} key={prod.id} />
     </>
   );
 };

@@ -7,7 +7,6 @@ const ItemListContainer = ({ tituloSeccion }) => {
 
   useEffect(() => {
     getItem().then((res) => {
-      console.log("Respuesta GetItem: ", res);
       setProducts(res);
     });
   }, []);
@@ -17,10 +16,12 @@ const ItemListContainer = ({ tituloSeccion }) => {
 
   return (
     <>
-      <ItemList
-        tituloSeccion={`${tituloSeccion} ${ofertasDelDia}`}
-        products={products}
-      />
+      <div className="App-main contenedor-Inicio">
+        <ItemList
+          tituloSeccion={`${tituloSeccion} ${ofertasDelDia}`}
+          products={products}
+        />
+      </div>
     </>
   );
 };
