@@ -1,7 +1,6 @@
 .menu {
   justify-content: center;
-  height: 8vh;
-  margin-bottom: 1rem;
+  max-height: 7vh;
 }
 
 .contenedor-logo img {

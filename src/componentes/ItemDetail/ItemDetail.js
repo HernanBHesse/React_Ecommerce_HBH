@@ -3,37 +3,84 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, CardActions } from "@mui/material";
+import Visibility from "../Buttons/Visibility";
 
-const ItemDetail = ({ tituloSeccion, product }) => {
-  const { titulo, precio, imagen, altImagen, descripcion } = product;
+const ItemDetail = ({ product }) => {
+  const { titulo, precio, imagen, altImagen, stock, descripcion } = product;
 
   return (
     <>
-      <br />
-      <Card sx={{ maxWidth: 800, mx: "auto", mb: 1, p: 2}}>
+      <Card
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          maxWidth: 600,
+          mx: "auto",
+          mt: 1,
+          mb: 1,
+        }}
+      >
         <CardActionArea>
-        <Typography gutterBottom variant="h4" component="h4">
-        {tituloSeccion}
-            </Typography>
+          <Typography gutterBottom variant="h4" component="h4">
+            {titulo}
+          </Typography>
           <CardMedia
             component="img"
             min-height="300"
             src={`/${imagen}`}
             alt={altImagen}
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {titulo}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{mb: 1}}>
-              {descripcion}
-            </Typography>
-            <Typography variant="body3" color="text.secondary">
-              Precio $ {precio}
-            </Typography>
-          </CardContent>
         </CardActionArea>
+        <CardContent
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "auto",
+            gridTemplateRows: "auto",
+            p: 1,
+            m: 0,
+          }}
+        >
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ gridArea: "1 / 1 / 2 / 3", textAlign: "left" }}
+          >
+            {descripcion}
+          </Typography>
+          <Typography
+            variant="body3"
+            color="text.secondary"
+            sx={{
+              gridArea: "2 / 1 / 3 / 2",
+              fontWeight: 600,
+              placeSelf: "center",
+            }}
+          >
+            Precio $ {precio}
+          </Typography>
+          <Typography
+            variant="body3"
+            color="text.secondary"
+            sx={{
+              gridArea: "3 / 1 / 4 / 2",
+              fontWeight: 600,
+              placeSelf: "center",
+            }}
+          >
+            Stock: {stock}
+          </Typography>
+          <CardActions
+            sx={{
+              gridArea: "2 / 2 / 4 / 3",
+              placeSelf: "center",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+      <Visibility stock={stock} precio={precio} />
+          </CardActions>
+        </CardContent>
       </Card>
     </>
   );

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button, ButtonGroup } from "@mui/material";
+import onAdd from "../../funciones/onAdd";
 
-const ItemCount = ({ stock, inicial, onAdd }) => {
+const ItemCount = ({ stock, inicial, precio, show}) => {
   const [count, setCount] = useState(inicial);
   const addCount = () => {
     if (count < stock) {
@@ -24,17 +25,17 @@ const ItemCount = ({ stock, inicial, onAdd }) => {
           marginBottom: "5px",
         }}
       >
-        <Button variant="text" children="+" onClick={addCount}/>
+        <Button variant="text" children="+" onClick={addCount} />
         {count}
-        <Button variant="text" children="-" onClick={removeCount}/>
+        <Button variant="text" children="-" onClick={removeCount} />
       </ButtonGroup>
       <Button
         variant="contained"
         color="info"
         children="Comprar"
         onClick={() => {
-          onAdd(count);
-          setCount(inicial);
+          onAdd(count, precio, show);
+          setCount(inicial); 
         }}
       />
     </>
