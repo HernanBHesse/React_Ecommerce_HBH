@@ -4,8 +4,8 @@ import { CardActionArea } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import {Link} from "react-router-dom"
-import Visibility from "../Buttons/Visibility";
+import { Link } from "react-router-dom";
+import CompletePurchase from "../Buttons/CompletePurchase";
 
 const CardItem = ({ id, titulo, precio, imagen, altImagen, stock }) => {
   return (
@@ -31,7 +31,14 @@ const CardItem = ({ id, titulo, precio, imagen, altImagen, stock }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <Visibility stock={stock} precio={precio} />
+      <CompletePurchase
+        id={id}
+        titulo={titulo}
+        precio={precio}
+        imagen={imagen}
+        alt={altImagen}
+        stock={stock}
+      />
     </Card>
   );
 };

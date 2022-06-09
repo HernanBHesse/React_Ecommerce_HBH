@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button, ButtonGroup } from "@mui/material";
 import onAdd from "../../funciones/onAdd";
+import CartContext from "../context/CartContext";
 
-const ItemCount = ({ stock, inicial, precio, show}) => {
+const ItemCount = ({
+  id,
+  titulo,
+  precio,
+  imagen,
+  altImagen,
+  stock,
+  inicial,
+  show,
+}) => {
   const [count, setCount] = useState(inicial);
+  const { addProductToCart } = useContext(CartContext);
   const addCount = () => {
     if (count < stock) {
       setCount(count + 1);
@@ -35,7 +46,8 @@ const ItemCount = ({ stock, inicial, precio, show}) => {
         children="Comprar"
         onClick={() => {
           onAdd(count, precio, show);
-          setCount(inicial); 
+          setCount(inicial);
+          addProductToCart({ id, titulo, precio, imagen, altImagen, count });
         }}
       />
     </>

@@ -1,17 +1,22 @@
 import { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { Button } from "@mui/material";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const Visibility = ({stock, precio}) => {
+const Visibility = ({ id, titulo, precio, imagen, altImagen, stock }) => {
   const [visibility, setVisibility] = useState(true);
+  
   return (
     <>
       {visibility ? (
         <ItemCount
+          id={id}
+          titulo={titulo}
+          precio={precio}
+          imagen={imagen}
+          alt={altImagen}
           stock={stock}
           inicial={1}
-          precio={precio}
           show={setVisibility}
         />
       ) : (

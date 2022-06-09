@@ -4,10 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions } from "@mui/material";
-import Visibility from "../Buttons/Visibility";
+import CompletePurchase from "../Buttons/CompletePurchase";
 
 const ItemDetail = ({ product }) => {
-  const { titulo, precio, imagen, altImagen, stock, descripcion } = product;
+  const {id, titulo, precio, imagen, altImagen, stock, descripcion } = product;
 
   return (
     <>
@@ -78,7 +78,14 @@ const ItemDetail = ({ product }) => {
               flexDirection: "column",
             }}
           >
-      <Visibility stock={stock} precio={precio} />
+            <CompletePurchase
+              id={id}
+              titulo={titulo}
+              precio={precio}
+              imagen={imagen}
+              alt={altImagen}
+              stock={stock}
+            />
           </CardActions>
         </CardContent>
       </Card>
