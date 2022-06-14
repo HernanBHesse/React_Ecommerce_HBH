@@ -85,6 +85,7 @@ const ItemDetail = ({ product }) => {
               imagen={imagen}
               alt={altImagen}
               stock={stock}
+              ver={false}
             />
           </CardActions>
         </CardContent>

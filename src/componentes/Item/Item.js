@@ -38,6 +38,7 @@ const CardItem = ({ id, titulo, precio, imagen, altImagen, stock }) => {
         imagen={imagen}
         alt={altImagen}
         stock={stock}
+        ver={true}
       />
     </Card>
   );

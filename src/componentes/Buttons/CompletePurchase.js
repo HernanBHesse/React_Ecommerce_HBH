@@ -3,7 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Visibility = ({ id, titulo, precio, imagen, altImagen, stock }) => {
+const Visibility = ({ id, titulo, precio, imagen, altImagen, stock, ver }) => {
   const [visibility, setVisibility] = useState(true);
   
   return (
@@ -17,6 +17,7 @@ const Visibility = ({ id, titulo, precio, imagen, altImagen, stock }) => {
           alt={altImagen}
           stock={stock}
           inicial={1}
+          ver={ver}
           show={setVisibility}
         />
       ) : (
