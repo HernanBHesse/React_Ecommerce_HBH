@@ -1,8 +1,7 @@
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
-import db from "../../utils/FirebaseConfig";
+import getItemDetail from "../../funciones/getItemDetail";
 
 const ItemDetailContainer = () => {
   const [prod, setProducto] = useState([]);
@@ -13,14 +12,6 @@ const ItemDetailContainer = () => {
       setProducto(res);
     });
   }, [id]);
-
-  const getItemDetail = async (id) => {
-    const docRef = doc(db, "productos", id);
-    const docSnaptshop = await getDoc(docRef);
-    let producto = docSnaptshop.data();
-    producto.id = docSnaptshop.id;
-    return producto;
-  };
 
   return (
     <>
