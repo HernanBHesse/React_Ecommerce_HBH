@@ -1,6 +1,9 @@
+//React
 import { useState, useContext } from "react";
-import { Button, ButtonGroup } from "@mui/material";
+//Componentes
 import CartContext from "../context/CartContext";
+//Material
+import { Button, ButtonGroup } from "@mui/material";
 
 const ItemCount = ({
   id,

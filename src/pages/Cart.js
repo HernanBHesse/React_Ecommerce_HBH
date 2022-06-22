@@ -1,6 +1,14 @@
-import * as React from "react";
-import { useContext } from "react";
+//React
+import { useContext, useState } from "react";
+//Firebase
+import { addDoc, collection } from "firebase/firestore";
+import db from "../utils/FirebaseConfig";
+//DOM
+import { Link } from "react-router-dom";
+//Componentes
 import CartContext from "../componentes/context/CartContext";
+import Modal from "../componentes/Modal/Modal";
+//Material
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,7 +19,10 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
 
 const Img = styled("img")({
   margin: "auto",
@@ -30,6 +41,46 @@ const Cart = () => {
     precioTotal,
     itemsCartCount,
   } = useContext(CartContext);
+
+  const [success, setSuccess] = useState();
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [formValue, setFormValue] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+  });
+
+  const [order, setOrder] = useState({
+    comprador: {},
+    items: cartListItems.map((item) => {
+      return {
+        id: item.id,
+        titulo: item.titulo,
+        precio: item.precio,
+        cantidad: item.count,
+      };
+    }),
+    total: precioTotal,
+  });
+
+
+  const handleChange = (e) => {
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setOrder({ ...order, comprador: formValue });
+    saveData({ ...order, comprador: formValue });
+  };
+
+  const saveData = async (newOrder) => {
+    const orderFirebase = collection(db, "ordenes");
+    const orderDoc = await addDoc(orderFirebase, newOrder);
+    setSuccess(orderDoc.id);
+  };
 
   return (
     <>
@@ -95,7 +146,7 @@ const Cart = () => {
             </TableBody>
           </Table>
           <Button
-            variant="outlined"
+            variant="contained"
             color="error"
             sx={{ mr: "20vw", ml: 1, my: 1 }}
             onClick={() => {
@@ -107,15 +158,11 @@ const Cart = () => {
             Vaciar
           </Button>
           <Button
-            component={Link}
-            to="/compraFinalizada"
             variant="contained"
             color="success"
             sx={{ mr: 1, ml: "20vw", my: 1 }}
             onClick={() => {
-              setCartListItems([]);
-              setItemsCartCount(0);
-              setPrecioTotal(0);
+              handleClickOpen();
             }}
           >
             Terminar mi compra
@@ -136,6 +183,93 @@ const Cart = () => {
             Volver al inicio
           </Button>
         </Paper>
+      )}
+      {success ? (
+        <Modal
+          titulo={"Compra finalizada"}
+          open={open}
+          handleClose={() => setOpen(false)}
+        >
+          <DialogContent>
+            <DialogContentText>
+            Compraste un total de {itemsCartCount} productos por un valor de ${precioTotal}
+            </DialogContentText>
+            <DialogContentText>
+              Numero de comprobante {success}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              component={Link}
+              to="/"
+              variant="contained"
+              color="success"
+              onClick={() => {
+                setCartListItems([]);
+                setItemsCartCount(0);
+                setPrecioTotal(0);
+              }}
+            >
+              Volver al inicio
+            </Button>
+          </DialogActions>
+        </Modal>
+      ) : (
+        <Modal
+          titulo={"Finalizar compra"}
+          open={open}
+          handleClose={() => setOpen(false)}
+        >
+          <DialogContent>
+            <DialogContentText>
+              Por favor complete los siguientes campos para finalizar la compra
+            </DialogContentText>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="nombre"
+                name="nombre"
+                label="Nombre y Apellido"
+                fullWidth
+                value={formValue.nombre}
+                onChange={handleChange}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="telefono"
+                name="telefono"
+                label="Telefono"
+                fullWidth
+                value={formValue.telefono}
+                onChange={handleChange}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="email"
+                name="email"
+                label="Email"
+                fullWidth
+                value={formValue.email}
+                onChange={handleChange}
+              />
+              <DialogActions>
+                <Button variant="contained" color="error" onClick={handleClose}>
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="success"
+                >
+                  Finalizar
+                </Button>
+              </DialogActions>
+            </form>
+          </DialogContent>
+        </Modal>
       )}
     </>
   );

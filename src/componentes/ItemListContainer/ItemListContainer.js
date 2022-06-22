@@ -1,5 +1,7 @@
-import ItemList from "../ItemList/ItemList";
+//React
 import { useState, useEffect } from "react";
+//Componentes
+import ItemList from "../ItemList/ItemList";
 import getItem from "../../funciones/getItem";
 
 const ItemListContainer = ({ tituloSeccion }) => {

@@ -26,7 +26,6 @@ function App() {
           <Route path="/category/:categoria" element={<Categorias />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart/>} />
-          <Route path="/compraFinalizada" element={<h2>Compra finalizada</h2>} />
         </Routes>
         <Footer />
       </CartProvider>

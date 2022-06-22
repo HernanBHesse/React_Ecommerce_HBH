@@ -1,10 +1,11 @@
-import * as React from "react";
+//Componentes
+import CompletePurchase from "../Buttons/CompletePurchase";
+//Material
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions } from "@mui/material";
-import CompletePurchase from "../Buttons/CompletePurchase";
 
 const ItemDetail = ({ product }) => {
   const {id, titulo, precio, imagen, altImagen, stock, descripcion } = product;

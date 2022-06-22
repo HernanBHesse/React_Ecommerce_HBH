@@ -1,9 +1,13 @@
-import * as React from "react";
+//React
 import { useState, useContext } from "react";
+//DOM
+import { Link } from "react-router-dom";
+//Componentes
+import CartContext from "../context/CartContext";
+//Material
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import CartContext from "../context/CartContext";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -12,7 +16,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Badge from "@mui/material/Badge";
-import { Link } from "react-router-dom";
+
 
 const Img = styled("img")({
   margin: "auto",
@@ -138,11 +142,11 @@ const CartWidget = ({ size }) => {
                 Vaciar
               </MenuItem>
             )}
-
             <MenuItem
               sx={{ justifyContent: "center" }}
               component={Link}
               to="/cart"
+              onClick={handleClose}
             >
               Ver Carrito
             </MenuItem>

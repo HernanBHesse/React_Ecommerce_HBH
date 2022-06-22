@@ -1,5 +1,8 @@
+//React
 import { useEffect, useState } from "react";
+//DOM
 import { useParams } from "react-router-dom";
+//Componentes
 import ItemList from "../componentes/ItemList/ItemList";
 import filtrarPorCategoria from "../funciones/getCategoria";
 

@@ -1,11 +1,13 @@
-import * as React from "react";
+//DOM
+import { Link } from "react-router-dom";
+//Componentes
+import CompletePurchase from "../Buttons/CompletePurchase";
+//Material
 import Card from "@mui/material/Card";
 import { CardActionArea } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
-import CompletePurchase from "../Buttons/CompletePurchase";
 
 const CardItem = ({ id, titulo, precio, imagen, altImagen, stock }) => {
   return (

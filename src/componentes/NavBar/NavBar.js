@@ -1,15 +1,19 @@
-import * as React from "react";
+//React
+import { useState } from "react";
+//DOM
+import { Link } from "react-router-dom";
+//Componentes
 import CartWidget from "../CartWidget/CartWidget";
+//Material
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { ButtonGroup } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -93,7 +97,6 @@ const NavBar = () => {
                 children="Lago"
               />
             </Menu>
-            <Button color="inherit" children="Consultas" />
           </ButtonGroup>
             <CartWidget size={logo} sx={{ flexGrow: 0 }}/>
         </Toolbar>

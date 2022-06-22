@@ -1,4 +1,6 @@
+//Componentes
 import CardItem from "../Item/Item";
+//Material
 import { Grid } from "@mui/material";
 
 const ItemList = ({ tituloSeccion, products }) => {
