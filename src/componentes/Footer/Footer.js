@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="App-footer">
-      <h3>Footer</h3>
+      <h5>Copyright ©</h5>
     </div>
   );
 };

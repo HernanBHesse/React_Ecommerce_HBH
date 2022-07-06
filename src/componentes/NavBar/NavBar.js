@@ -29,7 +29,7 @@ const NavBar = () => {
 
   return (
     <div className="App-header">
-      <AppBar sx={{ justifyContent: "center", maxHeight: "7vh" }}>
+      <AppBar sx={{ justifyContent: "center", maxHeight: "10vh" }}>
         <Toolbar sx={{ display: "flex" }}>
           <Button
             sx={{ flexGrow: 0 }}
@@ -81,20 +81,20 @@ const NavBar = () => {
               <MenuItem
                 onClick={handleClose}
                 component={Link}
-                to="/category/rio"
-                children="Rio"
+                to="/category/media"
+                children="Media Agua"
               />
               <MenuItem
                 onClick={handleClose}
                 component={Link}
-                to="/category/mar"
-                children="Mar"
+                to="/category/superficial"
+                children="Superficial"
               />
               <MenuItem
                 onClick={handleClose}
                 component={Link}
-                to="/category/lago"
-                children="Lago"
+                to="/category/hundimiento"
+                children="Hundimiento"
               />
             </Menu>
           </ButtonGroup>

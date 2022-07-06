@@ -25,7 +25,7 @@ const CardItem = ({ id, titulo, precio, imagen, altImagen, stock }) => {
           alt={altImagen}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {titulo}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">

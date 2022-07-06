@@ -50,6 +50,7 @@ const Cart = () => {
     nombre: "",
     telefono: "",
     email: "",
+    emailCheck: "",
   });
 
   const [order, setOrder] = useState({
@@ -64,7 +65,6 @@ const Cart = () => {
     }),
     total: precioTotal,
   });
-
 
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -192,7 +192,8 @@ const Cart = () => {
         >
           <DialogContent>
             <DialogContentText>
-            Compraste un total de {itemsCartCount} productos por un valor de ${precioTotal}
+              Compraste un total de {itemsCartCount} productos por un valor de $
+              {precioTotal}
             </DialogContentText>
             <DialogContentText>
               Numero de comprobante {success}
@@ -228,44 +229,88 @@ const Cart = () => {
               <TextField
                 autoFocus
                 margin="dense"
+                inputProps={{ inputMode: "string", pattern: "[A-Za-z ]*" }}
                 id="nombre"
                 name="nombre"
                 label="Nombre y Apellido"
+                placeholder="Ingresa tu Nombre y Apellido"
                 fullWidth
+                required
                 value={formValue.nombre}
                 onChange={handleChange}
               />
               <TextField
                 autoFocus
                 margin="dense"
+                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                 id="telefono"
                 name="telefono"
-                label="Telefono"
+                label="Teléfono"
+                placeholder="Ingresa tu teléfono (Solo números)"
                 fullWidth
+                required
                 value={formValue.telefono}
                 onChange={handleChange}
               />
               <TextField
                 autoFocus
                 margin="dense"
+                inputProps={{
+                  inputMode: "email",
+                  pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
+                }}
                 id="email"
                 name="email"
                 label="Email"
+                placeholder="ejemplo@ejemplo.com"
                 fullWidth
+                required
                 value={formValue.email}
                 onChange={handleChange}
               />
+              <TextField
+                autoFocus
+                margin="dense"
+                inputProps={{ inputMode: "email" }}
+                id="emailCheck"
+                name="emailCheck"
+                label="Repita su Email"
+                placeholder="ejemplo@ejemplo.com"
+                fullWidth
+                required
+                value={formValue.emailCheck}
+                onChange={handleChange}
+              />
+
               <DialogActions>
-                <Button variant="contained" color="error" onClick={handleClose}>
-                  Cancel
-                </Button>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="success"
-                >
-                  Finalizar
-                </Button>
+                {formValue.email === formValue.emailCheck &&
+                formValue.email !== "" ? (
+                  <>
+                    <Button type="submit" variant="contained" color="success">
+                      Finalizar
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={handleClose}
+                    >
+                      Cancel
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <DialogContentText sx={{ pr: 1 }}>
+                      Compruebe que ambos mail sean iguales
+                    </DialogContentText>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={handleClose}
+                    >
+                      Cancel
+                    </Button>
+                  </>
+                )}
               </DialogActions>
             </form>
           </DialogContent>

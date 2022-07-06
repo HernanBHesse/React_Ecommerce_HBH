@@ -2,12 +2,30 @@
 import CardItem from "../Item/Item";
 //Material
 import { Grid } from "@mui/material";
+import Typography from "@mui/material/Typography";
+
+const styles = {
+  typographyContainer: {
+    width: "max-content",
+    margin: "10px auto 0 auto",
+    backgroundColor: "#00000075",
+    borderRadius: "0.5rem",
+    boxShadow: "3px 3px 5px 0px #0000004d",
+  },
+};
 
 const ItemList = ({ tituloSeccion, products }) => {
   return (
     <>
-      <h2>{tituloSeccion}</h2>
-      <Grid container spacing={3} sx={{ maxWidth: "98vw", justifyContent: "center", mt: 1}}>
+      <Typography variant="h4" color="white" style={styles.typographyContainer}>
+        {tituloSeccion}
+      </Typography>
+
+      <Grid
+        container
+        spacing={3}
+        sx={{ width: "80vw", placeContent: "center", mt: 1, mx: "auto" }}
+      >
         {products.map(({ id, titulo, precio, imagen, altImagen, stock }) => {
           return (
             <Grid item lg={3} sm={6} key={id}>

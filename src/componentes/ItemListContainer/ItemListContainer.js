@@ -1,17 +1,9 @@
-//React
-import { useState, useEffect } from "react";
 //Componentes
 import ItemList from "../ItemList/ItemList";
-import getItem from "../../funciones/getItem";
 
-const ItemListContainer = ({ tituloSeccion }) => {
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getItem().then((res) => {
-      setProducts(res);
-    });
-  }, []);
+const ItemListContainer = ({ tituloSeccion, products }) => {
+
 
   let dia = new Date();
   let ofertasDelDia = `${dia.toLocaleDateString()}`;

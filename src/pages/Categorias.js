@@ -12,7 +12,7 @@ const Categorias = () => {
 
   useEffect(() => {
     setProducts([]);
-    filtrarPorCategoria(categoria).then((res) => {
+    filtrarPorCategoria("categoria", categoria).then((res) => {
       setProducts(res);
     });
   }, [categoria]);

@@ -50,8 +50,6 @@ const CartWidget = ({ size }) => {
 
   return (
     <>
-      {itemsCartCount ? (
-        <>
           <Button
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
@@ -152,10 +150,6 @@ const CartWidget = ({ size }) => {
             </MenuItem>
           </Menu>
         </>
-      ) : (
-        <></>
-      )}
-    </>
   );
 };
 
