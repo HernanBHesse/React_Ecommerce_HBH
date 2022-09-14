@@ -23,7 +23,7 @@ const BannerHome = () => {
         sx={{
           display: "grid",
           placeItems: "center",
-          m: 1,
+
           mx: "auto",
 
           width: "90vw",
