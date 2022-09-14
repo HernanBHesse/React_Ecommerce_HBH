@@ -53,7 +53,7 @@ const ItemDetail = ({ product }) => {
             variant="body3"
             color="text.secondary"
             sx={{
-              gridArea: "2 / 1 / 3 / 2",
+              gridArea: "1 / 3 / 2 / 4",
               fontWeight: 600,
               placeSelf: "center",
             }}
