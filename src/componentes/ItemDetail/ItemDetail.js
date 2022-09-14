@@ -28,7 +28,7 @@ const ItemDetail = ({ product }) => {
           </Typography>
           <CardMedia
             component="img"
-            min-height="300"
+            min-height="200"
             src={`/${imagen}`}
             alt={altImagen}
           />
