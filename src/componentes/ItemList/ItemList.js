@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 const styles = {
   typographyContainer: {
     width: "max-content",
-    margin: "0 auto 0 auto",
+    margin: "5px auto 0 auto",
     backgroundColor: "#00000075",
     borderRadius: "0.5rem",
     boxShadow: "3px 3px 5px 0px #0000004d",
