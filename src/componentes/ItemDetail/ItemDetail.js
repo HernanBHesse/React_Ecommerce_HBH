@@ -16,7 +16,7 @@ const ItemDetail = ({ product }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          maxWidth: 600,
+          maxWidth: 800,
           mx: "auto",
           mt: 1,
           mb: 1,
