@@ -25,7 +25,7 @@ const BannerHome = () => {
           placeItems: "center",
           m: 1,
           mx: "auto",
-          height: "10vh",
+
           width: "90vw",
         }}
       >
