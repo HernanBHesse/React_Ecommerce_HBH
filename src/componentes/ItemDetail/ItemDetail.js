@@ -45,7 +45,7 @@ const ItemDetail = ({ product }) => {
           <Typography
             variant="body2"
             color="text.secondary"
-            sx={{ gridArea: "1 / 1 / 2 / 3", textAlign: "left" }}
+            sx={{ gridArea: "1 / 1 / 4 / 2", textAlign: "left" }}
           >
             {descripcion}
           </Typography>
@@ -53,7 +53,7 @@ const ItemDetail = ({ product }) => {
             variant="body3"
             color="text.secondary"
             sx={{
-              gridArea: "2 / 1 / 3 / 2",
+              gridArea: "1 / 2 / 2 / 3",
               fontWeight: 600,
               placeSelf: "center",
             }}
@@ -64,7 +64,7 @@ const ItemDetail = ({ product }) => {
             variant="body3"
             color="text.secondary"
             sx={{
-              gridArea: "3 / 1 / 4 / 2",
+              gridArea: "2 / 2 / 3 / 3",
               fontWeight: 600,
               placeSelf: "center",
             }}
@@ -73,7 +73,7 @@ const ItemDetail = ({ product }) => {
           </Typography>
           <CardActions
             sx={{
-              gridArea: "2 / 2 / 4 / 3",
+              gridArea: "3 / 2 / 4 / 3",
               placeSelf: "center",
               display: "flex",
               flexDirection: "column",
