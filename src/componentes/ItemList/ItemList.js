@@ -24,7 +24,7 @@ const ItemList = ({ tituloSeccion, products }) => {
       <Grid
         container
         spacing={3}
-        sx={{ width: "80vw", placeContent: "center", mx: "auto" }}
+        sx={{ width: "80vw", placeContent: "center", mx: "auto", mt: 1 }}
       >
         {products.map(({ id, titulo, precio, imagen, altImagen, stock }) => {
           return (
